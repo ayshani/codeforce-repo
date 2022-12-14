@@ -33,7 +33,7 @@ outputCopy
 19
 19
  */
-public class ExtremelyRound {
+public class ExtremelyRound_1766A {
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
