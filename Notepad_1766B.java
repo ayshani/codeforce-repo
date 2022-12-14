@@ -3,7 +3,10 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
-
+/*
+https://codeforces.com/contest/1766/problem/B
+Explanation - https://codeforces.com/blog/entry/110066
+ */
 public class Notepad_1766B {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
