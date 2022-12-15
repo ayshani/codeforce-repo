@@ -3,7 +3,10 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
-
+/*
+https://codeforces.com/problemset/problem/1773/F
+Explanation - https://codeforces.com/contest/1773/attachments/download/18267/nef-2022-tutorial.pdf
+ */
 public class Football_1773F {
 
     public static void main(String[] args) throws IOException {
@@ -35,9 +38,9 @@ public class Football_1773F {
                 System.out.println("0:1");
             }
         } else if((a+b)>=n && ((a==0) || (b==0))){
-            System.out.println(draw);
+            System.out.println(0);
+            List<Integer> lst = new ArrayList<>();
             if(a==0){
-                List<Integer> lst = new ArrayList<>();
                 for(int i=0;i<n;i++){
                     lst.add(1);
                     b--;
@@ -47,8 +50,7 @@ public class Football_1773F {
                 for(int num : lst){
                     System.out.println("0:"+num);
                 }
-            } else if(b==0){
-                List<Integer> lst = new ArrayList<>();
+            } else {
                 for(int i=0;i<n;i++){
                     lst.add(1);
                     a--;
@@ -59,8 +61,8 @@ public class Football_1773F {
                     System.out.println(num+":0");
                 }
             }
-        } else if((a+b)>=n){
-            System.out.println(draw);
+        } else {
+            System.out.println(0);
             List<int[]> lst = new ArrayList<>();
             for(int i=0;i<n;i++){
                 lst.add(new int[]{0,0});
@@ -94,9 +96,9 @@ public class Football_1773F {
             }
             if(b>0)
             {
-                int[] temp = lst.get(0);
+                int[] temp = lst.get(1);
                 temp[1] += b;
-                lst.set(0,temp);
+                lst.set(1,temp);
             }
             for(int[] num : lst){
                 System.out.println(num[0]+":"+num[1]);
