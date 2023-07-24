@@ -1,6 +1,8 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 import java.util.HashSet;
 import java.util.Arrays;
@@ -47,30 +49,23 @@ public class VerticalPaths_1678D {
             }
         }
         System.out.println(count);
-
         boolean[]  visited = new boolean[n+1];
         for(int i : leafSet){
-            //List<Integer> curPath = new ArrayList<>();
-            StringBuilder sb = new StringBuilder();
+            List<Integer> curPath = new ArrayList<>();
             visited[i] = true;
-            //curPath.add(i);
-            sb.append(i+" ");
-            int countCurrentPath =1;
+            curPath.add(i);
             int v =i;
             while(parent[v]!=v && !visited[parent[v]]){
                 v = parent[v];
                 visited[v]= true;
-                sb.append(v+" ");
-                countCurrentPath++;
+                curPath.add(v);
             }
-
-            System.out.println(countCurrentPath);
-            String s = sb.reverse().toString().trim();
-            //for(int j=curPath.size()-1; j>=0;j--)
-            //    System.out.print(curPath.get(j) +" ");
-            System.out.println(s);
+            System.out.println(curPath.size());
+            for(int j=curPath.size()-1; j>=0;j--)
+                System.out.print(curPath.get(j) +" ");
+            System.out.println();
         }
-        //System.out.println();
+        System.out.println();
     }
 
 }
