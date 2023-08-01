@@ -5,9 +5,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class NotAssigning_1627C {
 
@@ -18,7 +16,7 @@ public class NotAssigning_1627C {
             while(t-->0) {
                 int n = Integer.parseInt(br.readLine());
                 int[] degree = new int[n+1];
-                List<List<Pair>> graph = new ArrayList<>();
+                List<List<Pair<Number, Number>>> graph = new ArrayList<>();
                 for(int i=0;i<=n;i++){
                     graph.add(new ArrayList<>());
                 }
@@ -27,8 +25,8 @@ public class NotAssigning_1627C {
                     String[] inp = br.readLine().split(" ");
                     int x = Integer.parseInt(inp[0]);
                     int y = Integer.parseInt(inp[1]);
-                    graph.get(x).add(new Pair(y,i));
-                    graph.get(y).add(new Pair(x,i));
+                    graph.get(x).add(new Pair<Number, Number>(y,i));
+                    graph.get(y).add(new Pair<Number, Number>(x,i));
                     degree[x]++;
                     degree[y]++;
                     if(degree[x]>2 || degree[y]>2) {
@@ -46,7 +44,7 @@ public class NotAssigning_1627C {
         }
     }
 
-    private static void solve(int n, List<List<Pair>> graph, int[] degree) {
+    private static void solve(int n, List<List<Pair<Number, Number>>> graph, int[] degree) {
         int startIndex =0;
         for(int i=1;i<=n;i++){
             if(degree[i]==1){
@@ -63,8 +61,8 @@ public class NotAssigning_1627C {
         System.out.println();
     }
 
-    private static void dfs(int startIndex, int parent, List<List<Pair>> graph, int[] res, int color) {
-        for(Pair next : graph.get(startIndex)){
+    private static void dfs(int startIndex, int parent, List<List<Pair<Number, Number>>> graph, int[] res, int color) {
+        for(Pair<Number, Number> next : graph.get(startIndex)){
             if(next.y!=parent){
                 res[next.index] = color;
                 dfs(next.y,startIndex,graph,res,5-color);
@@ -73,10 +71,12 @@ public class NotAssigning_1627C {
     }
 }
 
-class Pair{
+class Pair<I extends Number, I1 extends Number> {
     int y, index;
     public Pair(int y, int indx){
         this.y = y;
         this.index = indx;
     }
+
+
 }
