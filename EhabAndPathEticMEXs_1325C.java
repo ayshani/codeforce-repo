@@ -1,6 +1,5 @@
 /*
-https://codeforces.com/problemset/problem/839/C
-https://codeforces.com/contest/839/submission/29412220
+https://codeforces.com/problemset/problem/1325/C
  */
 
 import java.io.BufferedReader;
